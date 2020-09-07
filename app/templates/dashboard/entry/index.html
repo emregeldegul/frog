@@ -1,0 +1,12 @@
+{% extends 'assets/dashboard_base.html' %}
+
+{% block content %}
+<h1 id="welcome">{{ title }}</h1>
+
+<br />
+<ul>
+    {% for entry in entries %}
+        <li>[ {{ entry.created_at }} ] <a href="{{ url_for('d_entry.edit', slug = entry.slug) }}">{{ entry.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

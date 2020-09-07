@@ -1,0 +1,13 @@
+{% extends 'assets/home_base.html' %}
+
+{% block content %}
+<h1 id="welcome">{{ site_name }}</h1>
+<p>{{ site_signature }}</p>
+
+<br />
+<ul>
+    {% for entry in entries %}
+        <li>[ {{ entry.created_at }} ] <a href="{{ url_for('h_entry.show', slug = entry.slug) }}">{{ entry.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

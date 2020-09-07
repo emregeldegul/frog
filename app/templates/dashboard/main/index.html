@@ -1,0 +1,33 @@
+{% extends 'assets/dashboard_base.html' %}
+
+{% block content %}
+<h1 id="welcome">{{ title }}</h1>
+
+<br />
+<form action="" method="POST">
+    {% with messages = get_flashed_messages(with_categories = True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {{ form.hidden_tag() }}
+    --> {{ form.url.label() }}
+    {{ form.url() }}
+    --> {{ form.name.label() }}
+    {{ form.name() }}
+    --> {{ form.title.label() }}
+    {{ form.title() }}
+    --> {{ form.desc.label() }}
+    {{ form.desc() }}
+    --> {{ form.signature.label() }}
+    {{ form.signature() }}
+    --> {{ form.twitter.label() }}
+    {{ form.twitter() }}
+    --> {{ form.github.label() }}
+    {{ form.github() }}
+    {{ form.submit() }}
+</form>
+{% endblock %}

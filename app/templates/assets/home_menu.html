@@ -1,0 +1,20 @@
+<div class="menu">
+    <ul>
+        <li>
+            <a href="{{ url_for('h_main.index') }}">/</a>
+        </li>
+        {% if current_user.is_authenticated %}
+            <li>
+                <a href="{{ url_for('d_main.index') }}">/dashboard</a>
+            </li>
+        {% endif %}
+        <li>
+            <a href="{{ url_for('h_main.contact') }}">/contact</a>
+        </li>
+        {% for header_page in header_pages %}
+            <li>
+                <a href="{{ url_for('h_page.show', slug = header_page.slug) }}">/{{ header_page.slug }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

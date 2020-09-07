@@ -1,0 +1,13 @@
+{% extends 'assets/home_base.html' %}
+
+{% block content %}
+<h1 id="welcome">Yunus Emre Geldegül, (I think) Backend Developer.</h1>
+<p>Respect For The Suffering One.</p>
+
+<br />
+<ul>
+    {% for entry in entries %}
+        <li>[ {{ entry.created_at }} ] <a href="{{ url_for('h_entry.show', slug = entry.slug) }}">{{ entry.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
